@@ -318,7 +318,7 @@ class DataImport < ApplicationRecord
   def get_drive_file(url)
     if url =~ GOOGLE_DRIVE_REGEX
       file_id = Regexp.last_match[1]
-      drive_uri = URI("https://drive.google.com/uc?id=#{file_id}")
+      drive_uri = URI.encode("https://drive.google.com/uc?id=#{file_id}")
       result = Net::HTTP.get_response(drive_uri)
       result['location']
     end
