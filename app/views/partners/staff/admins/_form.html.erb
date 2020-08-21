@@ -1,0 +1,25 @@
+<%= simple_form_for([:partners, @admin]) do |f| %>
+  <div class="card">
+    <div class="card-content">
+      <%= f.error_notification %>
+
+      <%= f.input :employee_id %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :mobile_number %>
+
+      <%= f.input :pin, as: :password %>
+      <%= f.input :pin_confirmation, as: :password %>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <%= f.submit class: 'button is-primary' %>
+        </div>
+        <div class="control">
+          <%= link_to 'Cancel', [:partners, :admins], class: 'button is-text' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

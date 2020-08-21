@@ -1,0 +1,49 @@
+<%= simple_form_for([:admin, article]) do |f| %>
+  <div class="columns">
+    <div class="column is-8">
+      <div class="card">
+        <div class="card-content">
+          <% if article.header_image && article.header_image.image.present? %>
+            <%= image_tag article.header_image.image.large.url, class: 'img-fluid' %>
+          <% end %>
+
+          <%= f.simple_fields_for :header_image do |pf| %>
+            <%= pf.input :image, as: :bulma_file %>
+          <% end %>
+
+          <%= f.input :title %>
+          <%= f.input :content, as: :hidden %>
+          <trix-editor input='article_content'></trix-editor>
+          <%= f.association :content_categories,
+            as: :bulma_select2,
+            input_html: { multiple: true }  %>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-4">
+      <div class="columns is-multiline">
+        <div class="column is-12 order-md-2">
+          <div class="card">
+            <div class="card-content">
+              <%#= f.input :publish_at, as: :hidden, input_html: { class: 'datetimepicker', data: { inline: true } } %>
+              <%= f.input :publish_at, as: :string, input_html: { class: 'datetimepicker', value: f.object.publish_at&.localtime } %>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-12 order-md-1">
+          <div class="card">
+            <div class="card-content">
+              <%= f.submit class: 'button is-primary is-fullwidth' %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% if article.persisted? %>
+        <%= link_to 'Delete article', [:admin, article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-text is-fullwidth has-text-danger' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

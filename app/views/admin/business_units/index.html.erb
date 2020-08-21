@@ -1,0 +1,19 @@
+<% title 'Business units' %>
+<% breadcrumb :admin_business_units, @organisation %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New business unit', [:new, :admin, @organisation, :business_unit], class: 'button is-primary' %>
+<% end %>
+
+<table class="table is-striped is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @business_units %>
+  </tbody>
+</table>
+
+<%= paginate @business_units %>

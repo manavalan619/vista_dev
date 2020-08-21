@@ -1,0 +1,9 @@
+<% title 'Categories' %>
+<% breadcrumb :admin_categories %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New category', new_admin_category_path, class: 'button is-primary' %>
+<% end %>
+
+<%= render_categories @categories %>
+
+<%= paginate @categories %>

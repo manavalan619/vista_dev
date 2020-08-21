@@ -1,0 +1,6 @@
+vista: bundle exec rails s -p $PORT -b 0.0.0.0
+docs: cd slate && bundle exec middleman server
+webpacker: bin/webpack-dev-server
+sidekiq: bundle exec sidekiq
+# localtunnel: lt --port 9000 --subdomain vistadevapi
+# webpacker: ./bin/webpack-dev-server --hot

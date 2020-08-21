@@ -1,0 +1,20 @@
+<% title @organisation.name %>
+<% breadcrumb :admin_organisation, @organisation %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'Edit organisation', [:edit, :admin, @organisation], class: 'button is-primary' %>
+<% end %>
+
+<div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <%= link_to [:admin, @organisation, :business_units], class: 'tile is-child box has-text-centered' do %>
+      <%= fa_icon('building 3x') %>
+      <h1 class="title is-4 mt-1">Business units</h1>
+    <% end %>
+  </div>
+  <div class="tile is-parent">
+    <%= link_to [:admin, @organisation, :admins], class: 'tile is-child box has-text-centered' do %>
+      <%= fa_icon('users 3x') %>
+      <h1 class="title is-4 mt-1">Admins</h1>
+    <% end %>
+  </div>
+</div>

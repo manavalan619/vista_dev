@@ -1,0 +1,37 @@
+<%= simple_form_for([:admin, preference_group]) do |f| %>
+  <div class="columns">
+    <div class="column is-9">
+      <div class="card mb-1">
+        <div class="card-content">
+          <%= f.input :title %>
+          <%= f.input :question_ids,
+                      as: :bulma_select2,
+                      collection: Question.where(id: preference_group.question_ids),
+                      input_html: {
+                        multiple: true,
+                        data: {
+                          url: admin_questions_path
+                        }
+                      } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-3">
+      <div class="columns is-multiline">
+        <div class="column is-12 order-lg-1">
+          <div class="card">
+            <div class="card-content">
+              <%= f.submit class: 'button is-primary is-fullwidth' %>
+            </div>
+          </div>
+        </div>
+
+      <% if preference_group.persisted? %>
+        <div class="column is-12 order-lg-12">
+          <%= link_to 'Delete preference group', [:admin, preference_group], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-text has-text-danger is-fullwidth' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

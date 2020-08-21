@@ -1,0 +1,14 @@
+<li class="category-item" data-id="<%= partner_category.id %>">
+  <div class="category-container">
+    <div class="category-inner">
+      <%= link_to [:edit, :admin, partner_category], class: 'category-body' do %>
+        <%= partner_category.title %>
+      <% end %>
+
+      <div class="hidden-md-down drag-handle">
+        <%= fa_icon 'arrows-v' %>
+      </div>
+
+    </div>
+  </div>
+</li>

@@ -1,0 +1,42 @@
+<% title 'Articles' %>
+<% breadcrumb :admin_articles %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New article', new_admin_article_path, class: 'button is-primary' %>
+<% end %>
+
+<div class="columns">
+  <div class="column is-12">
+    <div class="card">
+      <div class="card-content">
+        <%= form_with url: admin_articles_path,
+                      class: 'filters',
+                      method: :get,
+                      data: { type: :script, remote: true } do |f| %>
+          <%= f.text_field :q, value: params[:q], class: 'input', placeholder: 'Search' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column is-12">
+    <table id="articles" class="table is-hoverable is-striped is-fullwidth">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Publish at</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= render @articles %>
+      </tbody>
+    </table>
+
+    <div id="pagination-wrapper">
+      <%= paginate @articles %>
+    </div>
+  </div>
+</div>

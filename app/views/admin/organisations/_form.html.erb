@@ -1,0 +1,40 @@
+<%= simple_form_for([:admin, organisation]) do |f| %>
+  <div class="columns">
+    <div class="column is-9">
+      <div class="card">
+        <div class="card-content">
+          <%= f.input :name %>
+          <%= f.input :about, input_html: { rows: 5 } %>
+          <div class="row">
+            <% if organisation.photo && organisation.photo.image.present? %>
+              <div class="col-md-2">
+                <%= image_tag organisation.photo.image.thumb.url, class: 'img-fluid' %>
+              </div>
+            <% end %>
+            <div class="col-md-10">
+              <%= f.simple_fields_for :photo do |pf| %>
+                <%= pf.input :image, as: :bulma_file %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-3">
+      <div class="columns is-multiline">
+        <div class="column is-12 order-lg-1">
+          <div class="card">
+            <div class="card-content">
+              <%= f.submit class: 'button is-primary is-fullwidth' %>
+            </div>
+          </div>
+        </div>
+
+      <% if organisation.persisted? %>
+        <div class="column is-12 order-lg-12">
+          <%= link_to 'Delete organisation', [:admin, organisation], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-text has-text-danger is-fullwidth' %>
+        </div>
+      <% end %>
+    </div>
+<% end %>

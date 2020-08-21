@@ -1,0 +1,21 @@
+<% title 'Branches' %>
+<% breadcrumb :admin_branches, @business_unit %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'Edit business unit', [:edit, :admin, @organisation, @business_unit], class: 'button' %>
+  <%= link_to 'New branch', [:new, :admin, @organisation, @business_unit, :branch], class: 'button is-primary' %>
+<% end %>
+
+<table class="table is-striped is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @branches %>
+  </tbody>
+</table>
+
+<%= paginate @branches %>

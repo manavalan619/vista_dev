@@ -1,0 +1,5 @@
+<tr class="rowlink">
+  <td><%= link_to article.title || 'No title', [:edit, :admin, article] %></td>
+  <td><%= article.status %></td>
+  <td><%= article.publish_at&.localtime&.strftime('%A, %e %B %Y at %H:%M') %></td>
+</tr>

@@ -1,0 +1,49 @@
+<div class="card">
+  <div class="card-content">
+    <%= simple_form_for([:partners, business_unit, role]) do |f| %>
+      <%= f.error_notification %>
+
+      <%#= f.association :business_unit, as: :select, collection: business_units_for_select, prompt: 'Select business unit' %>
+      <%= f.input :name %>
+
+      <%= f.input :interactions,
+        as: :bulma_select2,
+        collection: Interaction::PARTNER_TYPES,
+        input_html: { multiple: true, data: { close_on_select: false } }
+      %>
+
+      <%= f.association :member_request_types,
+        as: :bulma_select2,
+        collection: business_unit.member_request_types,
+        input_html: { multiple: true }  %>
+
+      <label class="label mt-1">Top questions</label>
+
+      <div class="columns">
+        <div class="column">
+          <%= render 'top_question_input', f: f, index: 1 %>
+        </div>
+        <div class="column">
+          <%= render 'top_question_input', f: f, index: 2 %>
+        </div>
+        <div class="column">
+          <%= render 'top_question_input', f: f, index: 3 %>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column is-12 order-md-1">
+          <%= react_component('RolePreferenceStructure', {
+            items: preference_groups_json(PreferenceGroup.all),
+            left: role.preference_structure_left,
+            right: role.preference_structure_right
+          }) %>
+        </div>
+      </div>
+
+      <div class="column is-12 order-md-1 role-action">
+        <%= f.submit class: 'button is-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

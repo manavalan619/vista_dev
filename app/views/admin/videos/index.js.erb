@@ -1,0 +1,4 @@
+$('#videos tbody').html("<%=j render @videos %>");
+$('#pagination-wrapper').html("<%=j paginate @videos %>");
+$('.rowlink').rowlink();
+$('#videos').trigger('rendered-content')

@@ -1,0 +1,36 @@
+<% if policy(BusinessUnit).index? %>
+  <p class="menu-label">Organisation</p>
+  <ul class="menu-list">
+    <li>
+      <%= active_link_to partners_business_units_path, class_active: 'is-active' do %>
+        Business Units
+      <% end %>
+    </li>
+  </ul>
+<% end %>
+<% if policy(StaffMember).manage? || policy(BranchManager).manage? || policy(Admin).manage? %>
+<p class="menu-label">Staff</p>
+<ul class="menu-list">
+  <% if policy(StaffMember).manage? %>
+    <li>
+      <%= active_link_to partners_staff_members_path, class_active: 'is-active' do %>
+        Staff Members
+      <% end %>
+    </li>
+  <% end %>
+  <% if policy(BranchManager).manage? %>
+    <li>
+      <%= active_link_to partners_branch_managers_path, class_active: 'is-active' do %>
+        Branch Managers
+      <% end %>
+    </li>
+  <% end %>
+  <% if policy(Admin).manage? %>
+    <li>
+      <%= active_link_to partners_admins_path, class_active: 'is-active' do %>
+        Admins
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<% end %>

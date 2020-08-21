@@ -1,0 +1,24 @@
+<div class="columns is-centered">
+  <div class="column is-4">
+    <div class="card mt-3">
+      <div class="card-header has-text-centered">
+        <p class="card-header-title has-text-centered">Account activation</p>
+      </div>
+      <div class="card-content">
+        <%= simple_form_for resource, as: resource_name,
+                                      url: update_staff_member_confirmation_path,
+                                      html: { method: 'patch' },
+                                      id: 'activation-form' do |f| %>
+          <%= devise_error_messages! %>
+          <% if @requires_password %>
+            <%= f.input :password, label: 'Choose a password' %>
+            <%= f.input :password_confirmation %>
+          <% end %>
+          <%= hidden_field_tag :confirmation_token, @confirmation_token %>
+
+          <%= f.button :submit, 'Activate', class: 'button is-primary is-fullwidth' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

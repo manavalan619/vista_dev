@@ -1,0 +1,24 @@
+<% title @data_import.file.to_s.split('/').last %>
+<% breadcrumb :admin_data_import, @data_import %>
+
+<div class="columns">
+  <div class="column is-12">
+    <div class="card">
+      <div class="card-content">
+        <p><strong>Status:</strong> <%= @data_import.status %></p>
+        <p><strong>Created:</strong> <%= @data_import.created_at %></p>
+        <p><strong>Finished:</strong> <%= @data_import.finished_at %></p>
+
+        <br />
+        <p><strong>Categories:</strong> <%= @data_import.categories %></p>
+        <p><strong>Visibility conditions:</strong> <%= @data_import.visibility_conditions %></p>
+        <p><strong>Questions:</strong> <%= @data_import.questions %></p>
+        <p><strong>Locking conditions:</strong> <%= @data_import.locking_conditions %></p>
+
+        <br />
+        <p><strong>Log:</strong></p>
+        <pre><code><%=raw @data_import.log.gsub('\n', '<br />') %></code></pre>
+      </div>
+    </div>
+  </div>
+</div>

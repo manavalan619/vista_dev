@@ -1,0 +1,36 @@
+<% title 'Branches' %>
+<% breadcrumb :partners_business_unit, @business_unit %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New branch', [:new, :partners, @business_unit, :branch], class: 'btn btn-primary mr-auto' %>
+  <%= link_to 'Edit business unit', [:edit, :partners, @business_unit], class: 'btn btn-primary mr-auto ml-1' %>
+<% end %>
+
+<div class="card">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <%= active_link_to 'Branches', [:partners, @business_unit, :branches], class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= active_link_to 'Roles', [:partners, @business_unit, :roles], class: 'nav-link' %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-body">
+    <table class="table table-hover table-striped table-sm table-bordered">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= render @branches %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= paginate @branches %>

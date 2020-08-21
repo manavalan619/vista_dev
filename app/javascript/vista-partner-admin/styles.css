@@ -1,0 +1,104 @@
+/*
+
+.nav-item {
+  border-bottom: 1px lightgray solid;
+}
+.nav-item > .active {
+  border-bottom: 0;
+}
+*/
+
+html,
+body,
+#react-app,
+[data-reactroot] {
+  height:100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.login-btn:hover {
+  background-color: #F5E4B9;
+}
+.login-input {
+  border:1px solid #B1933B !important;
+}
+
+.login-link-text {
+  font-size: 0.8em;
+}
+
+.edit-tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  /*top:-7px;*/
+    /*border-bottom: 1px dotted black;  If you want dots under the hoverable text */
+}
+
+.edit-tooltiptext {
+  visibility: hidden;
+  opacity: 0;
+  /*width: 120px;*/
+  font-size: 0.8em;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 3px;
+  border-radius: 2px;
+  white-space: nowrap;
+  z-index: -15;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  top: 25px;
+  right: -16px;
+  z-index: 1;
+  transition: opacity 0s;
+}
+
+.edit-tooltip:hover > .edit-tooltiptext {
+  transition: opacity 2s;
+  transition-delay: 2s;
+  visibility: visible;
+  opacity: 1;
+  user-select: none;
+}
+
+.button-container > .btn {
+  margin-right: 10px;
+}
+
+
+.list-group>div{
+  border-bottom: 1px dotted rgba(50,50,50, .1)
+}
+
+textarea{
+  resize: none;
+  min-height:100px;
+}
+
+.without-sidenav {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left:0;
+  background-color:#F7F7F8;
+}
+
+.breadcrumb-item {
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+.breadcrumb-item.showbreadcrumb {
+  opacity: 0.9;
+}
+
+.navbar-toggler-right {
+  top: 1rem;
+}

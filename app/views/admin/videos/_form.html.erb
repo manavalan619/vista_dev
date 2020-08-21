@@ -1,0 +1,51 @@
+<%= simple_form_for([:admin, video]) do |f| %>
+  <div class="columns">
+    <div class="column is-8">
+      <div class="card">
+        <div class="card-content">
+          <%= f.input :name %>
+          <%= f.input :url, label: 'URL', hint: 'URL must be a direct link to a .mp4 file' %>
+          <%= f.input :description, as: :text, input_html: { rows: 5 } %>
+          <%= f.association :organisation, as: :bulma_select2, include_blank: 'Vista' %>
+          <%= f.association :content_categories,
+            as: :bulma_select2,
+            input_html: { multiple: true }  %>
+          <%= f.input :published %>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-4">
+      <div class="columns is-multiline">
+        <div class="video-preview <%= video.persisted? ? nil : 'hidden' %> column is-12 order-md-2">
+          <div class="card">
+            <div class="card-content">
+              <% if video.persisted? %>
+                <video class='preview' controls>
+                  <source src='<%= video.url %>' type='video/mp4'>
+                </video>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-12 order-md-1">
+          <div class="card">
+            <div class="card-content">
+              <%= f.submit class: 'button is-primary is-fullwidth' %>
+              <% if video.persisted? %>
+                <%= link_to 'Cancel', [:admin, :videos], class: 'cancel-button button is-danger is-fullwidth' %>
+              <% else %>
+                <%= link_to 'Cancel', [:admin, :videos], data: { confirm: 'Are you sure you would like to cancel this video?' }, class: 'cancel-button button is-danger is-fullwidth' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% if video.persisted? %>
+        <%= link_to 'Delete video', [:admin, video], method: :delete, data: { confirm: 'Are you sure you would like to delete this video?' }, class: 'button is-text is-fullwidth has-text-danger' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

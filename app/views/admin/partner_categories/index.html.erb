@@ -1,0 +1,9 @@
+<% title 'Partner categories' %>
+<% breadcrumb :admin_partner_categories %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New category', new_admin_partner_category_path, class: 'button is-primary' %>
+<% end %>
+
+<%= render_partner_categories @partner_categories %>
+
+<%= paginate @partner_categories %>

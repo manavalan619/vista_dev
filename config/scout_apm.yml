@@ -1,0 +1,13 @@
+common: &defaults
+  name: <%= ENV.fetch('SCOUT_NAME', 'Vista API') %>
+  key: <%= ENV.fetch('SCOUT_KEY', '') %>
+  monitor: <%= ENV.fetch('SCOUT_MONITOR', false) %>
+  log_level: <%= ENV.fetch('SCOUT_LOG_LEVEL', 'INFO') %>
+  enable_background_jobs: <%= ENV.fetch('SCOUT_ENABLE_BACKGROUND_JOBS', true) %>
+  scout_profile: <%= ENV.fetch('SCOUT_PROFILE', true) %>
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VistaPlatform</title>
+    <%= csrf_meta_tags %>
+
+    <%#= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <%#= javascript_include_tag 'application' %>
+    <%#= javascript_pack_tag 'vendor' %>
+    <%= javascript_pack_tag 'application' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

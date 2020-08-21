@@ -1,0 +1,29 @@
+<%= simple_form_for([:admin, @organisation, @admin]) do |f| %>
+  <div class="card">
+    <div class="card-content">
+      <%= f.error_notification %>
+
+      <%= f.input :employee_id %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :mobile_number %>
+
+      <%= f.input :pin, as: :password %>
+      <%= f.input :pin_confirmation, as: :password %>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <%= f.submit class: 'button is-primary' %>
+        </div>
+        <div class="control">
+          <%= link_to 'Cancel', [:admin, @organisation, :admins], class: 'button is-text' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% if admin.persisted? %>
+    <%= link_to 'Delete admin', [:admin, @organisation, admin], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-text has-text-danger is-fullwidth mt-1' %>
+  <% end %>
+<% end %>

@@ -1,0 +1,22 @@
+<% cache category do %>
+  <li class="category-item<%= category.children.any? ? ' toggleable' : nil %>" data-id="<%= category.id %>">
+    <%= fa_icon('chevron-right', class: 'list-toggle') if category.children.any? %>
+    <div class="category-container">
+      <div class="category-inner">
+        <%= link_to [:edit, :admin, category], class: 'category-body' do %>
+          <div class="category-photo-wrapper">
+            <%= image_tag(category.photo.image.thumb.url, height: 60) if category.photo.present? %>
+          </div>
+          <%= category.title_with_nesting %>
+          <%= "⭐️" if category.initial? %>
+        <% end %>
+
+        <div class="hidden-md-down drag-handle">
+          <%= fa_icon 'arrows-v' %>
+        </div>
+
+      </div>
+    </div>
+    <%= render_categories category.children %>
+  </li>
+<% end %>

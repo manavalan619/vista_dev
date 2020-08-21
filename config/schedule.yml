@@ -1,0 +1,8 @@
+category_updates:
+  cron: "0 0 * * *"
+  class: "CategoryUpdatesJob"
+  active_job: true
+profile_progress:
+  cron: "0 18 1,15 * *"
+  class: "ProfileProgressJob"
+  active_job: true

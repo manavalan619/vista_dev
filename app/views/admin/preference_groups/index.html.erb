@@ -1,0 +1,19 @@
+<% title 'Preference groups' %>
+<% breadcrumb :admin_preference_groups %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New preference group', [:new, :admin, :preference_group], class: 'button is-primary' %>
+<% end %>
+
+<table class="table is-hoverable is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @preference_groups %>
+  </tbody>
+</table>
+
+<%= paginate @preference_groups %>

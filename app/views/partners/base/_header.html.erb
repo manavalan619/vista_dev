@@ -1,0 +1,7 @@
+<div class="tabs">
+  <ul>
+    <%= active_link_to 'Branches', [:partners, @business_unit, :branches], wrap_tag: :li, class_active: 'is-active' %>
+    <%= active_link_to 'Roles', [:partners, @business_unit, :roles], wrap_tag: :li, class_active: 'is-active' %>
+    <%= active_link_to 'Request Types', [:partners, @business_unit, :member_request_types], wrap_tag: :li, class_active: 'is-active' %>
+  </ul>
+</div>

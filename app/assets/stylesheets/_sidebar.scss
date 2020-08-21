@@ -1,0 +1,29 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: fixed;
+  background-color: $sidebar-bg;
+  width: $sidebar-width;
+
+  // .nav {
+  //   padding-left: 15px;
+  //   padding-right: 15px;
+  //   width: 100%;
+  // }
+}
+
+.app-body {
+  padding-left: $sidebar-width;
+}
+
+.sidebar-right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: fixed;
+  background-color: #fff;
+  width: $sidebar-right-width;
+}

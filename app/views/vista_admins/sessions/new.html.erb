@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-4-tablet">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="card mt-3">
+          <div class="card-header">
+            <p class="card-header-title">Login</p>
+          </div>
+          <div class="card-content">
+            <%= f.input :email, required: false, autofocus: true %>
+            <%= f.input :password, required: false %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+            <%= f.button :submit, "Log in", class: 'btn btn-fill btn-warning btn-wd' %>
+            <br/>
+            <%= render "vista_admins/shared/links" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

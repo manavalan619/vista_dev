@@ -1,0 +1,27 @@
+<% title 'Branch managers' %>
+<% breadcrumb :admin_branch_managers %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New branch manager', [:new, :admin, :branch_manager], class: 'button is-primary is-right' %>
+<% end %>
+
+<div class="columns">
+  <div class="column">
+    <div class="card">
+      <div class="card-table">
+        <div class="content">
+          <table class="table is-fullwidth is-striped">
+            <thead>
+              <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render @branch_managers %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

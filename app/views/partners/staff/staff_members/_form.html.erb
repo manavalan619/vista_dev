@@ -1,0 +1,32 @@
+<%= simple_form_for([:partners, staff_member]) do |f| %>
+  <div class="card">
+    <div class="card-content">
+      <%= f.error_notification %>
+
+      <%= f.association :assigned_branches,
+                        as: :bulma_select2,
+                        collection: current_organisation.branches,
+                        input_html: { multiple: true } %>
+
+      <%= f.association :roles, as: :bulma_select2, input_html: { multiple: true } %>
+
+      <%= f.input :employee_id %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :mobile_number %>
+      <%#= f.input :password, as: :password %>
+      <%#= f.input :password_confirmation, as: :password %>
+      <%= f.input :pin, as: :password %>
+      <%= f.input :pin_confirmation, as: :password %>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <%= f.submit class: 'button is-primary' %>
+        </div>
+        <div class="control">
+          <%= link_to 'Cancel', [:partners, :staff_members], class: 'button is-text' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

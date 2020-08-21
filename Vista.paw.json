@@ -1,0 +1,315 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Vista.paw",
+    "version": "v0.0.0"
+  },
+  "host": "api.vista.test",
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/v1",
+  "paths": {
+    "/login": {
+      "post": {
+        "summary": "Login",
+        "description": "",
+        "operationId": "4b6dcf71-fd12-415f-b4ef-b0c05a0e35be",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"email\":\"chris@kanso.io\",\"password\":\"password\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        }
+      }
+    },
+    "/register": {
+      "post": {
+        "summary": "Register (fail)",
+        "description": "",
+        "operationId": "5dc81b20-6a0b-4290-a7a8-9229b4444fc7",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"email\":\"test@test.com\",\"password\":\"password\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        }
+      }
+    },
+    "/me": {
+      "get": {
+        "summary": "Me",
+        "description": "",
+        "operationId": "2dae2cff-dd94-40e1-a53c-147af2e43517",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update user profile",
+        "description": "",
+        "operationId": "d2330007-0826-4ad4-8963-5f8d99d3656b",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "Chris Edwards",
+            "name": "user[name]",
+            "required": false,
+            "in": "formData"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        }
+      }
+    },
+    "/partners": {
+      "get": {
+        "summary": "Partners",
+        "description": "",
+        "operationId": "47150363-a50b-4780-941b-2571aed258d9",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/partners/1/share": {
+      "post": {
+        "summary": "Share with partner",
+        "description": "",
+        "operationId": "f3038baf-6cd0-417b-a95f-d5dce46465d8",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/partners/1/revoke": {
+      "delete": {
+        "summary": "Revoke partner",
+        "description": "",
+        "operationId": "6189fd2f-0f2e-48a0-9b3c-6321d4bd3d06",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/partners/revoke": {
+      "delete": {
+        "summary": "Revoke all partners",
+        "description": "",
+        "operationId": "1e12c62b-67d3-4490-96e4-e33fc1c9d7b6",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/categories": {
+      "get": {
+        "summary": "Categories",
+        "description": "",
+        "operationId": "d249db3a-0134-47a6-b5fa-b6a4c25205af",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/questions": {
+      "get": {
+        "summary": "Questions",
+        "description": "",
+        "operationId": "7abe6b58-5c89-4edc-a4f9-cdba1b179226",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/news": {
+      "get": {
+        "summary": "News",
+        "description": "",
+        "operationId": "cdbc865d-6c44-422a-9147-fc3b67875f0f",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/sync": {
+      "get": {
+        "summary": "Sync",
+        "description": "",
+        "operationId": "0626afff-fe7f-4953-bff7-38e12eb66235",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "parameters": []
+      },
+      "post": {
+        "summary": "Sync to server",
+        "description": "",
+        "operationId": "47ab7787-129c-4861-84f4-c3813b2dd2c5",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"update\":[{\"questionId\":23,\"values\":\"Online!\",\"note\":null}],\"get\":[34,26,36],\"delete\":[24],\"add\":[{\"questionId\":24,\"values\":\"Less than $1000\"}]}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        }
+      }
+    },
+    "/categories/4222/ignore": {
+      "post": {
+        "summary": "Disable category",
+        "description": "",
+        "operationId": "86ae0aba-0702-4abf-b1ff-3152dc626fbe",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "parameters": []
+      },
+      "delete": {
+        "summary": "Enable category",
+        "description": "",
+        "operationId": "8bc2023a-8c20-4fa1-b1a5-ee45a55007b5",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/password/reset": {
+      "post": {
+        "summary": "Reset password",
+        "description": "",
+        "operationId": "b49e1495-c139-40f7-91ad-78c4f1234e4d",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"email\":\"foo\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update password",
+        "description": "",
+        "operationId": "f3af31b5-c73e-4a41-9dea-aea5005daf6d",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"token\":\"bad\",\"password\":\"password\",\"password_confirmation\":\"password\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,9 @@
+<% if flash.any? %>
+  <%= javascript_tag data: { turbolinks_track: true } do %>
+    $(function() {
+    <% flash.each do |name, msg| %>
+      notify.<%= name %>("<%= [msg].flatten.to_sentence %>");
+    <% end %>
+    });
+  <% end %>
+<% end %>

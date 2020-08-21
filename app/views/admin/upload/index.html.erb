@@ -1,0 +1,24 @@
+<% title 'Import categories and questions' %>
+<% breadcrumb :admin_upload %>
+
+<div class="card">
+  <div class="card-content">
+    <%= form_tag admin_upload_index_path, multipart: true, authenticity_token: true do %>
+      <div class="file">
+        <label class="file-label">
+          <%= file_field_tag :file, class: 'file-input' %>
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Choose a file…
+            </span>
+          </span>
+        </label>
+      </div>
+      <br class="mb-5">
+      <%= submit_tag 'Import', class: 'button is-primary' %>
+    <% end %>
+  </div>
+</div>

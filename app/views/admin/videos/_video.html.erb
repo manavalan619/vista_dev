@@ -1,0 +1,7 @@
+<tr class="rowlink">
+  <td><%= link_to video.name || 'No name', [:edit, :admin, video] %></td>
+  <td><%= sanitize(video.description) %></td>
+  <td><%= organisation_name video %></td>
+  <td><%= published_status video %></td>
+  <td><%= published_at video %></td>
+</tr>

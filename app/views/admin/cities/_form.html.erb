@@ -1,0 +1,43 @@
+<%= simple_form_for([:admin, city]) do |f| %>
+  <div class="columns">
+    <div class="column is-9">
+      <div class="card mb-1">
+        <div class="card-content">
+          <%= f.input :name %>
+          <%= f.input :status, as: :bulma_select2, collection: City::STATUSES %>
+
+          <div class="columns">
+            <% if city.photo && city.photo.image.present? %>
+              <div class="column is-narrow">
+                <%= image_tag city.photo.image.thumb.url, class: 'img-fluid' %>
+              </div>
+            <% end %>
+            <div class="column">
+              <%= f.simple_fields_for :photo do |pf| %>
+                <%= pf.input :image, as: :bulma_file %>
+              <% end %>
+              <%= f.full_error :photo %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-3">
+      <div class="columns is-multiline">
+        <div class="column is-12 order-lg-1">
+          <div class="card">
+            <div class="card-content">
+              <%= f.submit class: 'button is-primary is-fullwidth' %>
+            </div>
+          </div>
+        </div>
+
+      <% if city.persisted? %>
+        <div class="column is-12 order-lg-12">
+          <%= link_to 'Delete photo', [:admin, city], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-text has-text-danger is-fullwidth' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

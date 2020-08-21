@@ -1,0 +1,14 @@
+<tr id="<%= dom_id(release) %>">
+  <th class="status"><%= release_status(release) %></th>
+  <th><%= release.created_at %></th>
+  <th class="download">
+    <%= link_to 'Download', [:download, :admin, release], target: '_blank' if release.file.present? %>
+  </th>
+  <th>
+    <%= link_to(
+      'Delete', [:admin, release],
+      class: 'has-text-danger',
+      data: { method: :delete, confirm: 'Are you sure?' }
+    ) if release.complete? && !release.latest? %>
+  </th>
+</tr>

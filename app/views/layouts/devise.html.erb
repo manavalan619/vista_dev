@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= if content_for?(:title) then yield(:title) + ' | ' end %>
+      Vista Admin
+    </title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'admin', media: 'all' %>
+    <%= javascript_include_tag 'admin' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

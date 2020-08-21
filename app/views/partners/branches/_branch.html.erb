@@ -1,0 +1,4 @@
+<tr class="rowlink">
+  <%#= image_tag(branch.photo.image.thumb.url, height: 60) if branch.photo %>
+  <td><%= link_to branch.name, [:edit, :partners, branch.business_unit, branch] %></td>
+</tr>

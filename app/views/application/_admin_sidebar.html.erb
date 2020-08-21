@@ -1,0 +1,61 @@
+<p class="menu-label">Questions & Categories</p>
+<ul class="menu-list">
+  <li>
+    <%= active_link_to admin_categories_path, class_active: 'is-active' do %>
+      <%= fa_icon 'tag fw' %> Categories
+    <% end %>
+  </li>
+  <li>
+    <%= active_link_to admin_questions_path, class_active: 'is-active' do %>
+      <%= fa_icon 'question fw' %> Questions
+    <% end %>
+  </li>
+  <li>
+    <%= active_link_to admin_preference_groups_path, class_active: 'is-active' do %>
+      <%= fa_icon 'question-circle-o fw' %> Preference groups
+    <% end %>
+  </li>
+  <li>
+    <%= active_link_to admin_releases_path, class_active: 'is-active' do %>
+      <%= fa_icon 'list-ol fw' %> Releases
+    <% end %>
+  </li>
+  <li>
+    <%= active_link_to admin_data_imports_path, class_active: 'is-active' do %>
+      <%= fa_icon 'upload fw' %> Data imports
+    <% end %>
+  </li>
+</ul>
+
+<p class="menu-label">Partners</p>
+<ul class="menu-list">
+  <li>
+    <%= active_link_to admin_organisations_path, class_active: 'is-active' do %>
+      <%= fa_icon 'building fw' %> Organisations
+    <% end %>
+  </li>
+  <li>
+    <%= active_link_to admin_partner_categories_path, class_active: 'is-active' do %>
+      <%= fa_icon 'tags fw' %> Partner categories
+    <% end %>
+  </li>
+  <li>
+    <%= active_link_to admin_cities_path, class_active: 'is-active' do %>
+      <%= fa_icon 'building-o fw' %> Cities
+    <% end %>
+  </li>
+</ul>
+
+<p class="menu-label">Content</p>
+<ul class="menu-list">
+  <li>
+    <%= active_link_to admin_articles_path, class_active: 'is-active' do %>
+      <%= fa_icon 'newspaper-o fw' %> News Articles
+    <% end %>
+  </li>
+  <li>
+    <%= active_link_to admin_videos_path, class_active: 'is-active' do %>
+      <%= fa_icon 'video-camera fw' %> Videos
+    <% end %>
+  </li>
+</ul>

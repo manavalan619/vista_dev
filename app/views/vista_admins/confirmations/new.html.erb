@@ -1,0 +1,23 @@
+<div class="columns is-centered">
+  <div class="column is-4">
+    <div class="card mt-3">
+      <div class="card-header has-text-centered">
+        <p class="card-header-title has-text-centered">Resend confirmation instructions</p>
+      </div>
+      <div class="card-content">
+        <%= simple_form_for(resource, as: resource_name,
+                                      url: confirmation_path(resource_name),
+                                      html: { method: :post }) do |f| %>
+          <%= f.error_notification %>
+          <%= f.full_error :confirmation_token %>
+
+          <%= f.input :email, required: true, autofocus: true %>
+
+          <%= f.button :submit, 'Resend confirmation instructions' %>
+        <% end %>
+
+        <%= render 'vista_admins/shared/links' %>
+      </div>
+    </div>
+  </div>
+</div>

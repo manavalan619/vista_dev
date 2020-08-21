@@ -1,0 +1,25 @@
+<div class="nested-fields card mb-1">
+  <div class="card-content">
+    <%= f.input_field :position, as: :hidden, class: 'position-field' %>
+    <div class="columns">
+      <% if f.object.photo && f.object.photo.image.present? %>
+        <div class="column is-2">
+          <%= image_tag f.object.photo.image.thumb.url, class: 'img-fluid' %>
+        </div>
+      <% end %>
+      <div class="column <%= f.object.photo ? 'is-9' : 'is-11' %>">
+        <%= f.input :title, label: false, placeholder: 'Value' %>
+        <% f.object.photo || f.object.build_photo %>
+        <%= f.simple_fields_for :photo do |pf| %>
+          <%= pf.input :image, as: :bulma_file %>
+          <%= pf.input :image_cache, as: :hidden %>
+          <%= pf.input :_destroy, as: :boolean, label: 'Remove image' if pf.object.image.present? %>
+        <% end %>
+        <%#= f.input :description %>
+      </div>
+      <div class="column is-1">
+        <%= link_to_remove_association fa_icon('times'), f, class: 'button has-text-danger' %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="column is-narrow">
+  <aside class="menu">
+    <%= render 'admin_sidebar' if vista_admin_signed_in? %>
+    <%= render 'partner_sidebar' if staff_member_signed_in? %>
+  </aside>
+</div>

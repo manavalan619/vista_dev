@@ -1,0 +1,23 @@
+<%= simple_form_for([:admin, business_unit.organisation, business_unit]) do |f| %>
+  <div class="columns">
+    <div class="column is-8">
+      <div class="card">
+        <div class="card-content">
+          <%= f.input :name %>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-4">
+      <div class="card">
+        <div class="card-content">
+          <%= f.submit class: 'button is-primary is-fullwidth' %>
+        </div>
+      </div>
+
+      <% if business_unit.persisted? %>
+        <%= link_to 'Delete unit', [:admin, business_unit.organisation, business_unit], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-text is-fullwidth has-text-danger' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

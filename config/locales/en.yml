@@ -1,0 +1,42 @@
+en:
+  activerecord:
+    attributes:
+      admin:
+        employee_id: Employee ID
+      branch_manager:
+        employee_id: Employee ID
+      staff_member:
+        employee_id: Employee ID
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: Email address required
+              taken: Email is already taken
+              invalid: Email is invalid
+  helpers:
+    submit:
+      preference_group:
+        create: Create group
+        update: Update group
+  notifications:
+    news:
+      title: "Vista has added new partners and news, check them out before your next trip"
+    profile_progress:
+      title: "You’ve answered %{count} questions to date. Remember, the more you answer the better Vista experience you’ll get. Keep going!"
+    profile_reminder:
+      title: "Don’t forget to update your preferences before you travel"
+    rating_request:
+      title: "Please rate your experience with %{name}"
+    share_request:
+      title: "%{name} has requested to share your profile"
+    new_message:
+      title: "A new message has been received from %{name}"
+  simple_form:
+    labels:
+      file:
+        select: 'Choose a file...'
+  views:
+    pagination:
+      truncate: '&hellip;'

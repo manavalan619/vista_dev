@@ -1,0 +1,14 @@
+---
+:timeout: 8
+:logfile: log/sidekiq.log
+:queues:
+  - default
+  - mailer
+  - mailers
+  - releases
+  - imports
+staging:
+  :concurrency:  1
+production:
+  :concurrency:  3
+

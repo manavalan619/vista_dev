@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-content">
+    <%= simple_form_for [:admin, @data_import], multipart: true, authenticity_token: true do |f| %>
+      <%= f.input :file, as: :bulma_file %>
+
+      <fieldset>
+        <legend>Categories</legend>
+        <%= f.input :categories %>
+        <%= f.input :visibility_conditions %>
+      </fieldset>
+
+      <fieldset>
+        <legend>Categories</legend>
+        <%= f.input :questions %>
+        <%= f.input :locking_conditions %>
+      </fieldset>
+
+      <br class="mb-5">
+      <%= submit_tag 'Import', class: 'button is-primary' %>
+    <% end %>
+  </div>
+</div>

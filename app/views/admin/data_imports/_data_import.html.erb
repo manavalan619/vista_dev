@@ -1,0 +1,8 @@
+<tr id="<%= dom_id(data_import) %>" class="rowlink">
+  <th class="file-link">
+    <%= link_to_if data_import.finished? || data_import.failed?, data_import.filename, [:admin, data_import] %>
+  </th>
+  <th class="status"><%= import_status(data_import) %></th>
+  <th><%= data_import.created_at %></th>
+  <th><%= data_import.finished_at %></th>
+</tr>

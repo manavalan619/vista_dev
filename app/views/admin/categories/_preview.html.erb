@@ -1,0 +1,16 @@
+<div class="card bg-light category-preview">
+  <div class="card-header">Current version</div>
+  <div class="card-body">
+    <div class="preview-card">
+      <% if category.photo && category.photo.image.present? %>
+        <div class="preview-image" style="background-image: url(<%= category.photo.image_url %>);"></div>
+      <% else %>
+        <div class="preview-image" style="background-image: url(http://via.placeholder.com/350x200?text=No+image);"></div>
+      <% end %>
+      <div class="preview-body">
+        <h3><%= category.title %></h3>
+        <p><%= category.description %></p>
+      </div>
+    </div>
+  </div>
+</div>

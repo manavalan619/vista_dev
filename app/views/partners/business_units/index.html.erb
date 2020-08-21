@@ -1,0 +1,25 @@
+<% title 'Business units' %>
+<% breadcrumb :partners_business_units, @organisation %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New business unit', [:new, :partners, :business_unit], class: 'button is-primary' %>
+<% end if policy(BusinessUnit).new? %>
+
+<div class="card">
+  <div class="card-table">
+    <div class="content">
+      <table class="table is-hoverable is-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%= render @business_units %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= paginate @business_units %>

@@ -1,0 +1,63 @@
+<%= simple_form_for([:partners, branch.business_unit, branch]) do |f| %>
+  <div class="card">
+    <div class="card-content">
+      <%= f.error_notification %>
+      <%= f.association :categories,
+                        as: :bulma_select2,
+                        input_html: { multiple: true } %>
+      <%= f.input :name %>
+      <%= f.input :branch_info, input_html: { rows: 5 } %>
+      <%= f.input :email %>
+      <%= f.input :telephone %>
+      <%= f.input :booking_url, hint: 'Please note, URLs must be in the format: http://web.address.here' %>
+      <div class="columns">
+        <% if branch.photo && branch.photo.image.present? %>
+          <div class="column is-2">
+            <%= image_tag branch.photo.image.thumb.url, class: 'img-fluid' %>
+          </div>
+        <% end %>
+        <div class="column is-10">
+          <%= f.simple_fields_for :photo do |pf| %>
+            <%= pf.input :image, as: :bulma_file %>
+            <%= pf.input :image_cache, as: :hidden %>
+            <%= pf.input :_destroy, as: :boolean, label: 'Remove image' if pf.object.persisted? %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-1">
+    <div class="card-header">
+      <p class="card-header-title">Address</p>
+    </div>
+    <div class="card-content">
+      <%= f.simple_fields_for :address do |af| %>
+        <%#= af.input :label %>
+        <%= af.input :line1 %>
+        <%= af.input :line2 %>
+        <%= af.association :city, as: :bulma_select2 %>
+        <%= af.input :county %>
+        <%= af.input :postcode %>
+        <%= af.input :country %>
+        <%= af.input :phone %>
+        <%= af.input :latitude %>
+        <%= af.input :longitude %>
+        <%#= af.input :_destroy, as: :boolean, label: 'Remove address' if af.object.persisted? %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card mt-1">
+    <div class="card-content">
+      <%= f.submit class: 'button is-primary' %>
+      <%= link_to 'Cancel', [:partners, branch.business_unit, :branches], class: 'button is-text' %>
+    </div>
+  </div>
+
+  <% if branch.persisted? %>
+    <div class="notification is-light mt-1" role="alert">
+      <%= link_to 'Delete branch...', [:partners, branch.business_unit, branch], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-text has-text-danger' %>
+    </div>
+  <% end %>
+<% end %>

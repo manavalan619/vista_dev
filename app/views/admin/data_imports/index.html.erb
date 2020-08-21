@@ -1,0 +1,22 @@
+<% title 'Data Imports' %>
+<% breadcrumb :admin_data_imports, @data_import %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'Import data', [:new, :admin, :data_import], class: 'button is-primary' %>
+<% end %>
+
+<table class="table is-striped is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Status</th>
+      <th>Created</th>
+      <th>Finished</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @data_imports %>
+  </tbody>
+</table>
+
+<%= paginate @data_imports %>

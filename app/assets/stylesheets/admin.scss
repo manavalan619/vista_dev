@@ -1,0 +1,160 @@
+@import 'variables';
+@import 'mixins';
+@import 'bulma-custom';
+@import 'rowlink';
+@import 'font-awesome';
+@import 'select2';
+@import 'category-preview';
+@import 'sortable';
+@import 'alertify';
+@import 'categories';
+@import 'trix';
+@import 'datepicker';
+@import 'admin/videos';
+
+html, body {
+  background-color: #ECF0F3;
+  // font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  height: 100%;
+}
+
+nav.navbar {
+  border-top: 4px solid $gold;
+  margin-bottom: 1rem;
+}
+
+.hero {
+  margin-bottom: 1rem;
+}
+
+.menu-list a {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.card {
+  &, table {
+    border-radius: 3px;
+  }
+}
+
+trix-editor .attachment__progress[value="100"] {
+  opacity: 0;
+}
+
+.clickable, .btn {
+  cursor: pointer;
+}
+
+.empty-state {
+  padding: 2rem;
+  text-align: center;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-3 {
+  margin-top: 3rem;
+}
+
+.mt-1-8 {
+  margin-top: 1.8rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mb-1-8 {
+  margin-bottom: 1.8rem;
+}
+
+#data-import-progress {
+  background-color: #333;
+  color: #ddd;
+  max-height: 300px;
+  padding: 15px;
+}
+
+.filters {
+  .select2-container {
+    margin-right: 1rem;
+  }
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.preference-group {
+  .title {
+    margin-bottom: .5rem;
+  }
+}
+
+
+.has-bullets {
+  list-style: disc;
+  margin-left: 1rem;
+}
+
+.is-dashed {
+  border-style: dashed;
+  border-width: 1px;
+  border-color: #aaa;
+  border-radius: 3px;
+  padding: .75rem;
+  position: relative;
+}
+
+.drag-placeholder {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.is-fullheight {
+  height: 100%;
+}
+
+fieldset {
+  background-color: white;
+  border: 1px solid #d5d5d5;
+  color: #4a4a4a;
+  max-width: 100%;
+  position: relative;
+  border-radius: 3px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.role-action {
+  margin-top: 3rem;
+}
+.branch-info-text {
+  margin-bottom: 1rem;
+}

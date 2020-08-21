@@ -1,0 +1,27 @@
+<% title 'Staff members' %>
+<% breadcrumb :partners_staff_members %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New staff member', new_partners_staff_member_path, class: 'button is-primary is-right' %>
+<% end %>
+
+<div class="columns">
+  <div class="column">
+    <div class="card">
+      <div class="card-table">
+        <div class="content">
+          <table class="table is-fullwidth is-striped">
+            <thead>
+              <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render @staff_members %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

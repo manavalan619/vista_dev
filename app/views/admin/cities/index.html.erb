@@ -1,0 +1,19 @@
+<% title 'Cities' %>
+<% breadcrumb :admin_cities %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New city', [:new, :admin, :city], class: 'button is-primary' %>
+<% end %>
+
+<table class="table is-hoverable is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @cities %>
+  </tbody>
+</table>
+
+<%= paginate @cities %>

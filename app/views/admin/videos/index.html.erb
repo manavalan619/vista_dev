@@ -1,0 +1,58 @@
+<% title 'Videos' %>
+<% breadcrumb :admin_videos %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New video', new_admin_video_path, class: 'button is-primary' %>
+<% end %>
+
+<div class="videos columns">
+  <div class="column is-12">
+    <div class="card">
+      <div class="card-content">
+        <a href='#' class='clear-filter'>clear filters</a>
+        <%= form_with url: admin_videos_path,
+                      class: 'filters',
+                      method: :get,
+                      data: { type: :script, remote: true } do |f| %>
+          <div class="field">
+            <div class="field-body">
+              <div class="field">
+                <%= f.select :organisation, organisation_select,
+                             { include_blank: 'Filter by partner' },
+                             { class: 'input', data: { width: '100%' } } %>
+              </div>
+              <div class="field">
+                <%= f.text_field :q, value: params[:q],
+                                 class: 'input search',
+                                 placeholder: 'Search by name/description' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column is-12">
+    <table id="videos" class="table is-hoverable is-striped is-fullwidth">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Partner</th>
+          <th>Status</th>
+          <th>Published at</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= render @videos %>
+      </tbody>
+    </table>
+
+    <div id="pagination-wrapper">
+      <%= paginate @videos %>
+    </div>
+  </div>
+</div>

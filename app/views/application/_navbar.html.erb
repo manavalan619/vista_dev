@@ -1,0 +1,29 @@
+<nav class="navbar is-white" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <%= link_to image_tag('logo.png'), admin_root_path, class: 'navbar-item' %>
+      <!--<a class="navbar-item" href="https://bulma.io">
+        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+      </a>-->
+
+      <button class="button navbar-burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <%= yield :navbar %>
+      </div>
+
+      <div class="navbar-end">
+        <%= link_to destroy_vista_admin_session_path, method: :delete, class: 'navbar-item is-hoverable' do %>
+          <%= fa_icon 'sign-out fw' %>
+          Log out
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,31 @@
+<%= simple_form_for([:partners, @branch_manager]) do |f| %>
+  <div class="card">
+    <div class="card-content">
+      <%= f.error_notification %>
+
+      <%= f.association :assigned_branches,
+                        as: :bulma_select2,
+                        collection: current_organisation.branches,
+                        input_html: { multiple: true } %>
+
+      <%= f.input :employee_id %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :mobile_number %>
+      <%#= f.input :password, as: :password %>
+      <%#= f.input :password_confirmation, as: :password %>
+      <%= f.input :pin %>
+      <%= f.input :pin_confirmation %>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <%= f.submit class: 'button is-primary' %>
+        </div>
+        <div class="control">
+          <%= link_to 'Cancel', [:partners, :branch_managers], class: 'button is-text' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

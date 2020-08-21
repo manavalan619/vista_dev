@@ -1,0 +1,4 @@
+<tr class="rowlink">
+  <td><%= image_tag(organisation.photo.image.thumb.url, height: 60) if organisation.photo %></td>
+  <th><%= link_to organisation.name, [:admin, organisation] %></th>
+</tr>

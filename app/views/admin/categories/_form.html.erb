@@ -1,0 +1,60 @@
+<%= simple_form_for([:admin, category]) do |f| %>
+  <div class="columns">
+    <div class="column is-9">
+      <div class="card mb-1">
+        <div class="card-content">
+          <%= f.input :title %>
+          <%= f.input :description, as: :text, input_html: { rows: 5 } %>
+          <%= f.input :parent_id, as: :bulma_select2, collection: category_parent_selection %>
+          <%= f.input :initial, hint: 'This will make the category display first in the app\'s carousel view' %>
+          <div class="columns">
+            <% if category.photo && category.photo.image.present? %>
+              <div class="column is-narrow">
+                <%= image_tag category.photo.image.thumb.url, class: 'img-fluid' %>
+              </div>
+            <% end %>
+            <div class="column">
+              <%= f.simple_fields_for :photo do |pf| %>
+                <%= pf.input :image, as: :bulma_file %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= react_component("VisibilityConditions", {
+        visibilityConditions: category.visibility_conditions,
+        questions: Question.all,
+        answers: Answer.all
+      }) %>
+    </div>
+
+    <div class="column is-3">
+      <div class="columns is-multiline">
+        <div class="column is-12 order-lg-2">
+          <div class="card mb-1">
+            <div class="card-header">
+              <h3 class="card-header-title">Customise appearance</h3>
+            </div>
+            <div class="card-content">
+              <%= f.input :text_style, as: :bulma_select2, collection: Category::TEXT_STYLES %>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-12 order-lg-1">
+          <div class="card mb-1">
+            <div class="card-content">
+              <%= f.submit class: 'button is-primary is-fullwidth' %>
+            </div>
+          </div>
+        </div>
+
+      <% if category.persisted? %>
+        <div class="column is-12 order-lg-12">
+          <%= link_to 'Delete category', [:admin, category], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-text has-text-danger is-fullwidth' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

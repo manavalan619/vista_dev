@@ -1,0 +1,22 @@
+<% title 'Releases' %>
+<%# breadcrumb :admin_releases %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New release', [:admin, :releases], class: 'button is-primary', data: { method: :post, confirm: 'Are you sure?', remote: true } %>
+<% end %>
+
+<table id="releases" class="table is-hoverable is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Created</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @releases %>
+  </tbody>
+</table>
+
+<%= paginate @releases %>

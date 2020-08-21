@@ -1,0 +1,6 @@
+<tr class="rowlink">
+  <td><%= [question.category.ancestors, question.category].flatten.map(&:title).join('/') %></td>
+  <td><%= link_to question.title, [:edit, :admin, question] %></td>
+  <td><%= question.kind %></td>
+  <td><%= question.intro %></td>
+</tr>

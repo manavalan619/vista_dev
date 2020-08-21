@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= [yield(:title), 'Vista Admin'].join(' | ') %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= stylesheet_pack_tag 'admin' %>
+    <%= javascript_include_tag 'admin', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_pack_tag 'admin' %>
+    <%= render 'flashes' %>
+  </head>
+  <body>
+    <%= render 'navbar' %>
+    <div class="container">
+      <main class="columns">
+        <%= render 'sidebar' %>
+
+        <div class="column">
+          <nav class="breadcrumb">
+            <%= navbar_breadcrumbs %>
+            <% if content_for?(:subnav) %>
+              <li class="breadcrumb-menu d-md-down-none">
+                <%= yield :subnav %>
+              </li>
+            <% end %>
+          </nav>
+
+          <% if content_for?(:title) || content_for?(:hero_right) %>
+            <%= render 'hero' %>
+          <% end %>
+
+          <%= yield %>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

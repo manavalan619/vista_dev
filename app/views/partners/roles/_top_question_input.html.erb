@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-content">
+    <label class="label">Question <%= index %></label>
+    <%= f.input :top_questions_data,
+      label: false,
+      as: :bulma_select2,
+      include_blank: '',
+      collection: Question.all,
+      selected: f.object.top_question(index),
+      input_html: {
+        name: 'role[top_questions_data][][id]'
+      }
+    %>
+    <%= hidden_field_tag 'role[top_questions_data][][position]', nil, value: index %>
+  </div>
+</div>

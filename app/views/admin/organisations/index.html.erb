@@ -1,0 +1,20 @@
+<% title 'Organisations' %>
+<% breadcrumb :admin_organisations %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New organisation', new_admin_organisation_path, class: 'button is-primary' %>
+<% end %>
+
+<table class="table is-striped is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @organisations %>
+  </tbody>
+</table>
+
+<%= paginate @organisations %>

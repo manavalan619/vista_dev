@@ -1,0 +1,22 @@
+<% title 'Roles' %>
+<% breadcrumb :partners_roles, @business_unit %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New role', [:new, :partners, @business_unit, :role], class: 'button is-primary' %>
+  <%= link_to 'Edit business unit', [:edit, :partners, @business_unit], class: 'button is-primary' %>
+<% end %>
+
+<div class="card">
+  <%= render 'header' %>
+
+  <div class="card-table">
+    <div class="content">
+      <table class="table is-hoverable is-striped">
+        <tbody>
+          <%= render @roles, business_unit: @business_unit %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= paginate @roles %>

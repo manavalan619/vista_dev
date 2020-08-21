@@ -1,0 +1,81 @@
+<%= simple_form_for([:admin, question]) do |f| %>
+  <div class="columns">
+    <div class="column is-8">
+      <div class="card mb-1">
+        <div class="card-content">
+          <%= f.association :category,
+                            as: :bulma_select2,
+                            collection: category_selection %>
+          <%= f.input :title %>
+          <%= f.input :kind, as: :bulma_select2, collection: Question::KINDS %>
+          <%= f.input :intro %>
+          <%= f.input :allows_note %>
+          <%= f.input :note_title %>
+          <div class="columns">
+            <% if question.photo && question.photo.image.present? %>
+              <div class="column is-3">
+                <%= image_tag question.photo.image.thumb.url, class: 'img-fluid' %>
+              </div>
+            <% end %>
+            <div class="column is-<%= question.photo && question.photo.image.present? ? 9 : 12 %>">
+              <%= f.simple_fields_for :photo do |pf| %>
+                <%= pf.input :image, as: :bulma_file, input_html: { class: 'form-control-file' }, label: 'Background image' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-1">
+        <div class='card-header'>
+          <h3 class='card-header-title'>Answers</h3>
+        </div>
+        <div class="card-content">
+          <div id="answers">
+            <%= f.simple_fields_for :answers do |answer| %>
+              <%= render 'answer_fields', f: answer %>
+            <% end %>
+            <div class="links">
+              <%= link_to_add_association 'Add answer', f, :answers, class: 'button is-primary is-fullwidth' %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= react_component("LockingConditions", {
+        lockingConditions: question.locking_conditions,
+        questions: Question.all,
+        answers: Answer.all
+      }) %>
+    </div>
+
+    <div class="column is-4">
+      <div class="columns is-multiline">
+        <div class="column is-12 order-lg-2">
+          <div class="card">
+            <div class="card-content">
+              <h5>Customise appearance</h5>
+              <%= f.input :text_style, as: :bulma_select2, collection: Question::TEXT_STYLES %>
+              <%= f.input :blur_background, hint: 'Blur the background image' %>
+              <%= f.input :background_overlay, hint: 'Places a 50% opacity black overlay over the background image' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-12 order-lg-1">
+          <div class="card">
+            <div class="card-content">
+              <%= f.submit class: 'button is-primary is-fullwidth' %>
+            </div>
+          </div>
+        </div>
+
+        <% if question.persisted? %>
+          <div class="column is-12 order-lg-12">
+            <%= link_to 'Delete question', [:admin, question], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-text has-text-danger is-fullwidth' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

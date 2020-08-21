@@ -1,0 +1,29 @@
+<div class="columns">
+  <div class="column">
+    <%= simple_form_for([:partners, business_unit]) do |f| %>
+      <div class="card">
+        <div class="card-content">
+          <%= f.input :name %>
+        </div>
+      </div>
+
+      <div class="card mt-1">
+        <div class="card-content">
+          <%= f.submit class: 'button is-primary' %>
+          <%= link_to 'Cancel', [:partners, :business_units], class: 'button is-text' %>
+        </div>
+      </div>
+
+      <% if business_unit.persisted? %>
+        <div class="card border-danger mt-1">
+          <div class="card-header">
+            <h5 class="card-header-title">Danger zone</h5>
+          </div>
+          <div class="card-content text-danger">
+            <%= link_to 'Delete unit', [:partners, business_unit], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger' %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

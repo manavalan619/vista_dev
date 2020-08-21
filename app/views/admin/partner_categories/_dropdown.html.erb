@@ -1,0 +1,21 @@
+<div class="dropdown">
+  <a href="#" class="dropdown-toggle no-caret add-element-btn" id="add-child-<%= partner_category.id %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <%= fa_icon('plus') %>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="add-child-<%= partner_category.id %>">
+    <%= link_to(
+      fa_icon('level-down fw', text: 'Add below'),
+      new_admin_partner_category_path(
+        parent_id: partner_category.parent_id,
+        position: partner_category.position + 1
+      ),
+      class: 'dropdown-item'
+    ) %>
+    <div role="separator" class="dropdown-divider"></div>
+    <%= link_to(
+      fa_icon('level-down fw', text: 'Add child category'),
+      new_admin_partner_category_path(parent_id: partner_category.id),
+      class: 'dropdown-item'
+    ) %>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="columns is-centered">
+  <div class="column is-4">
+    <%= simple_form_for(resource, as: :staff_member, url: session_path(:staff_member)) do |f| %>
+      <div class="card mt-3">
+        <div class="card-header has-text-centered">
+          <p class="card-header-title has-text-centered">Login</p>
+        </div>
+        <div class="card-content">
+          <%= f.input :email, required: false, autofocus: true %>
+          <%= f.input :password, required: false %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+          <%= f.button :submit, 'Log in', class: 'button is-primary is-fullwidth' %>
+          <%= render 'staff_members/shared/links' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

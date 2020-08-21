@@ -1,0 +1,58 @@
+<% title 'Questions' %>
+<% breadcrumb :admin_questions %>
+<% content_for(:hero_right) do %>
+  <%= link_to 'New question', new_admin_question_path, class: 'button is-primary' %>
+<% end %>
+
+<div class="columns">
+  <div class="column">
+    <div class="card mb-1">
+      <div class="card-content">
+        <%= form_with url: admin_questions_path,
+                      class: 'filters',
+                      method: :get,
+                      data: { type: :script, remote: true } do |f| %>
+          <div class="field">
+            <div class="field-body">
+              <div class="field">
+                <%# TODO: make this ajax-remote %>
+                <%= f.select :category, category_selection,
+                             { include_blank: 'Filter by category' },
+                             { class: 'input', data: { width: '100%' } } %>
+              </div>
+              <div class="field">
+                <%= f.select :kind, Question::KINDS,
+                             { include_blank: 'Filter by kind' },
+                             { class: 'input', data: { width: '100%' } } %>
+              </div>
+              <div class="field">
+                <%= f.text_field :q, value: params[:q],
+                                 class: 'input',
+                                 placeholder: 'Search by title' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table id="questions" class="table is-hoverable is-striped is-fullwidth">
+  <thead class="thead-light">
+    <tr>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Kind</th>
+      <th>Intro</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @questions %>
+  </tbody>
+</table>
+
+<div id="pagination-wrapper">
+  <%= paginate @questions %>
+</div>
