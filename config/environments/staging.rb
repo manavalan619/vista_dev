@@ -31,7 +31,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name: ENV.fetch('SENDGRID_USERNAME'),
     password: ENV.fetch('SENDGRID_PASSWORD'),
-    domain: 'herokuapp.com',
+    domain: 'getvista.co',
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,
@@ -54,5 +54,5 @@ Rails.application.configure do
   end
 
   config.active_storage.service = :local
-  config.action_cable.allowed_request_origins = [/https:\/\/([a-z].)*getvista.co/]
+  config.action_cable.allowed_request_origins = [/https:\/\/([a-z].)*herokuapp.com/]
 end

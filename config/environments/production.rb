@@ -51,7 +51,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name: ENV['SENDGRID_USERNAME'],
     password: ENV['SENDGRID_PASSWORD'],
-    domain: 'herokuapp.com',
+    domain: 'getvista.co',
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,
@@ -68,7 +68,7 @@ Rails.application.configure do
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
-  config.action_cable.allowed_request_origins = [/https:\/\/([a-z].)*getvista.co/]
+  config.action_cable.allowed_request_origins = [/https:\/\/([a-z].)*herokuapp.com/]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
