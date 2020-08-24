@@ -20,9 +20,7 @@ module VistaPlatform
     config.middleware.use Rack::Deflater
     config.middleware.insert_before 0, Rack::Cors, debug: Rails.env.development?, logger: (-> { Rails.logger }) do
       allow do
-        origins %w[admin.vista.test admin.getvista.co
-                   admin-staging.getvista.co partners-staging.vista.co
-                   partners.vista.test partners.getvista.co vistadev.herokuapp.com]
+        origins %w[vistadev.herokuapp.com]
         resource '/public/*', headers: :any, methods: :get
         resource '/assets/*', headers: :any, methods: :get
         # resource '*', headers: :any, methods: %i[get post options]
@@ -30,7 +28,7 @@ module VistaPlatform
     end
     unless Rails.env.development? || Rails.env.test?
       config.action_cable.allowed_request_origins = [
-        %r{http(s*):\/\/admin.getvista.co}
+        %r{http(s*):\/\/vistadev.herokuapp.com}
       ]
     end
     config.active_job.queue_adapter = :sidekiq
