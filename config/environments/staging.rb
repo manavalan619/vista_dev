@@ -55,5 +55,5 @@ Rails.application.configure do
 
   config.active_storage.service = :local
   # config.action_cable.allowed_request_origins = [/https:\/\/([a-z].)*herokuapp.com/]
-  config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
+  config.action_cable.allowed_request_origins = ['https://vistadev.herokuapp.com/']
 end

@@ -27,9 +27,7 @@ module VistaPlatform
       end
     end
     unless Rails.env.development? || Rails.env.test?
-      config.action_cable.allowed_request_origins = [
-        %r{http(s*):\/\/vistadev.herokuapp.com}
-      ]
+      config.action_cable.allowed_request_origins = ['https://vistadev.herokuapp.com/']
     end
     config.active_job.queue_adapter = :sidekiq
   end
