@@ -22,7 +22,7 @@ module VistaPlatform
       allow do
         origins %w[admin.vista.test admin.getvista.co
         admin-staging.getvista.co partners-staging.vista.co
-        partners.vista.test partners.getvista.co]
+        partners.vista.test partners.getvista.co vistadev.herokuapp.com]
         resource '/public/*', headers: :any, methods: :get
         resource '/assets/*', headers: :any, methods: :get
         # resource '*', headers: :any, methods: %i[get post options]
