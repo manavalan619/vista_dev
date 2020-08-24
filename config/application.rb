@@ -20,7 +20,9 @@ module VistaPlatform
     config.middleware.use Rack::Deflater
     config.middleware.insert_before 0, Rack::Cors, debug: Rails.env.development?, logger: (-> { Rails.logger }) do
       allow do
-        origins %w[vistadev.herokuapp.com]
+        origins %w[admin.vista.test admin.getvista.co
+        admin-staging.getvista.co partners-staging.vista.co
+        partners.vista.test partners.getvista.co]
         resource '/public/*', headers: :any, methods: :get
         resource '/assets/*', headers: :any, methods: :get
         # resource '*', headers: :any, methods: %i[get post options]
