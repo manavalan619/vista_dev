@@ -13,7 +13,11 @@ test:
 
 staging:
   <<: *default
-  database: vista-platform_staging
+  database: d82bj1g12vavj4
+  username: npnejimqkgxbni
+  password: 838a59b47fc65dff8855d4d8dd6b3d5161aa8764821d96d70a8267a1990dfe2d
+
+
 
 production:
   <<: *default
